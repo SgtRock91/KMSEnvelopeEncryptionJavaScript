@@ -1,0 +1,24 @@
+{
+  "name": "kmsjsencryption",
+  "version": "1.0.0",
+  "description": "KMS Envelope Encryption with JavaScript and Crypto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SgtRock91/KMSEnvelopeEncryptionJavaScript.git"
+  },
+  "author": "Alex Gillette",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SgtRock91/KMSEnvelopeEncryptionJavaScript/issues"
+  },
+  "homepage": "https://github.com/SgtRock91/KMSEnvelopeEncryptionJavaScript#readme",
+  "dependencies": {
+    "aws-sdk": "^2.441.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^7.0.0"
+  }
+}
