@@ -69,16 +69,22 @@ const main = async () => {
   console.log('dataKeys: \n', dataKeys);
 
   console.log('--------------------------------------------------------');
+  console.time('encrypt data time');
   const encryptedData = encrypt(dataKeys.Plaintext, data);
   console.log('encrypted data: ', encryptedData);
+  console.timeEnd('encrypt data time');
 
   console.log('--------------------------------------------------------');
+  console.time('decrypt dataKey time');
   const decryptedDataKey = await decryptEncryptedDataKey(dataKeys.CiphertextBlob);
   console.log('decryptedDataKey: \n', decryptedDataKey);
+  console.timeEnd('decrypt dataKey time');
 
   console.log('--------------------------------------------------------');
+  console.time('decrypt data time');
   const decryptedData = decrypt(decryptedDataKey.Plaintext, encryptedData);
   console.log('decrypted data: ', decryptedData);
+  console.timeEnd('decrypt data time');
   console.log('--------------------------------------------------------');
 };
 
