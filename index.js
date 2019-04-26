@@ -1,6 +1,7 @@
 require('dotenv').config()
 const aws = require('aws-sdk');
 const crypto = require('crypto');
+const helper = require('./helper');
 
 const kms = new aws.KMS({
   accessKeyId: process.env.AWS_KEY_ID,
@@ -58,11 +59,10 @@ const decryptEncryptedDataKey = (encryptedDataKey) => {
   });
 };
 
-const main = async () => {
-  const data = 'I am unencrypted, encrypt me!';
-
+const encryptionDemo = async (data) => {
   console.log('--------------------------------------------------------');
   console.log('data: ', data);
+  console.log('size of data: ', helper.memorySizeOf(data));
 
   console.log('--------------------------------------------------------');
   const dataKeys = await generateDataKey();
@@ -88,4 +88,12 @@ const main = async () => {
   console.log('--------------------------------------------------------');
 };
 
-main();
+const performanceTest = async () => {
+  const bankTransaction = { name: 'Bob Foo', type: 'deposit', amount: 1000000, dateTime: 'now!'};
+  const manyTransactions = []
+  for(i=0; i<100; i++) { manyTransactions[i] = bankTransaction; }
+  await encryptionDemo(JSON.stringify(manyTransactions));
+};
+
+encryptionDemo('I am unencrypted, encrypt me!');
+//performanceTest();
