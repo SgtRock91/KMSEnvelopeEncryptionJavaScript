@@ -18,7 +18,6 @@
   "homepage": "https://github.com/SgtRock91/KMSEnvelopeEncryptionJavaScript#readme",
   "dependencies": {
     "aws-sdk": "^2.441.0",
-    "crypto": "^1.0.1",
     "dotenv": "^7.0.0"
   }
 }
